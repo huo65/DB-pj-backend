@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huo.dbpjbackend.mapper.FlightsMapper">
+
+    <resultMap id="BaseResultMap" type="com.huo.dbpjbackend.domain.Flights">
+            <id property="flightnum" column="flightNum" jdbcType="INTEGER"/>
+            <result property="price" column="price" jdbcType="INTEGER"/>
+            <result property="numseats" column="numSeats" jdbcType="INTEGER"/>
+            <result property="numavail" column="numAvail" jdbcType="INTEGER"/>
+            <result property="fromcity" column="FromCity" jdbcType="VARCHAR"/>
+            <result property="arivcity" column="ArivCity" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        flightNum,price,numSeats,
+        numAvail,FromCity,ArivCity
+    </sql>
+</mapper>

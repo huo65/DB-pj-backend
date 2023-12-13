@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huo.dbpjbackend.mapper.HotelsMapper">
+
+    <resultMap id="BaseResultMap" type="com.huo.dbpjbackend.domain.Hotels">
+            <id property="location" column="location" jdbcType="VARCHAR"/>
+            <result property="price" column="price" jdbcType="INTEGER"/>
+            <result property="numrooms" column="numRooms" jdbcType="INTEGER"/>
+            <result property="numavail" column="numAvail" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        location,price,numRooms,
+        numAvail
+    </sql>
+</mapper>

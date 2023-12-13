@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huo.dbpjbackend.mapper.ReservationsMapper">
+
+    <resultMap id="BaseResultMap" type="com.huo.dbpjbackend.domain.Reservations">
+            <id property="resvkey" column="resvKey" jdbcType="VARCHAR"/>
+            <result property="custname" column="custName" jdbcType="VARCHAR"/>
+            <result property="resvtype" column="resvType" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        resvKey,custName,resvType
+    </sql>
+</mapper>
