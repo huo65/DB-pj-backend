@@ -43,7 +43,7 @@ public class ReservationsController {
         return Result.success("添加预定成功");
     }
     /**
-     * 预定分页
+     * 预定分页查询
      */
     @GetMapping("/page")
     public Result<Page> page(int page, int pageSize){
@@ -55,6 +55,8 @@ public class ReservationsController {
 
         return Result.success(pageInfo);
     }
+
+
     /**
      * 根据id删除预定
      */

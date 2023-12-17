@@ -29,6 +29,7 @@ public class BusController {
     @PostMapping
     public Result<String> save(@RequestBody Bus bus) {
         log.info("bus:{}",bus);
+        bus.setNumavail(bus.getNumbus());
         busService.save(bus);
         return Result.success("添加大巴成功");
     }
@@ -56,6 +57,17 @@ public class BusController {
         return Result.success("删除大巴成功");
     }
 
+    /**
+     * 根据id获取大巴
+     * @return
+     */
+    @GetMapping("/{id}")
+    public Result<Bus> get(@PathVariable  String id){
+        LambdaQueryWrapper<Bus> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(Bus::getLocation,id);
+        Bus bus = busService.getOne(queryWrapper);
+        return Result.success(bus);
+    }
     /**
      * 根据id修改大巴
      * @param bus

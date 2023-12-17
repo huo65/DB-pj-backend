@@ -47,6 +47,19 @@ public class FlightsController {
 
         return Result.success(pageInfo);
     }
+
+    /**
+     * 根据id获取航班
+     * @return
+     */
+    @GetMapping("/{id}")
+    public Result<Flights> get(@PathVariable String id){
+        LambdaQueryWrapper<Flights> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(Flights::getFlightnum,id);
+        Flights flights= flightsService.getOne(queryWrapper);
+        return Result.success(flights);
+    }
+
     /**
      * 根据id删除飞机
      */
