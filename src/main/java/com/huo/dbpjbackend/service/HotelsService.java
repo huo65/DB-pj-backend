@@ -10,4 +10,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 */
 public interface HotelsService extends IService<Hotels> {
 
+    int getAvailable(String model);
+
+    void resv(String model);
 }

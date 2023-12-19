@@ -5,9 +5,10 @@
 <mapper namespace="com.huo.dbpjbackend.mapper.ReservationsMapper">
 
     <resultMap id="BaseResultMap" type="com.huo.dbpjbackend.domain.Reservations">
-            <id property="resvkey" column="resvKey" jdbcType="VARCHAR"/>
+            <id property="resvkey" column="resvKey" jdbcType="INTEGER"/>
             <result property="custname" column="custName" jdbcType="VARCHAR"/>
             <result property="resvtype" column="resvType" jdbcType="INTEGER"/>
+            <result property="model" column="model" jdbcType="VARCHAR"/>
     </resultMap>
 
     <sql id="Base_Column_List">

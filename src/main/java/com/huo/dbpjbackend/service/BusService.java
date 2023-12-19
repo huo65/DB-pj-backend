@@ -10,4 +10,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 */
 public interface BusService extends IService<Bus> {
 
+    int getAvailable(String model);
+
+    void resv(String model);
 }

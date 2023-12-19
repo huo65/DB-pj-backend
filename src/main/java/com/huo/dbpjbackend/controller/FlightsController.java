@@ -31,6 +31,7 @@ public class FlightsController {
     @PostMapping
     public Result<String> save(@RequestBody Flights flights) {
         log.info("flights:{}",flights);
+        flights.setNumavail(flights.getNumseats());
         flightsService.save(flights);
         return Result.success("添加飞机成功");
     }

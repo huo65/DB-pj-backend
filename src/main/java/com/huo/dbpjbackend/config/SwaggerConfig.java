@@ -20,7 +20,7 @@ public class SwaggerConfig {
                 //配置网站的基本信息
                 .apiInfo(new ApiInfoBuilder()
                         //网站标题
-                        .title("电专外卖项目在线接口文档")
+                        .title("去这儿旅行项目在线接口文档")
                         //标题后面的版本号
                         .version("v1.0")
                         .description("xd-takeout项目接口文档")

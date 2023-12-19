@@ -3,6 +3,7 @@ package com.huo.dbpjbackend.controller;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.huo.dbpjbackend.common.Result;
+import com.huo.dbpjbackend.domain.Customers;
 import com.huo.dbpjbackend.domain.Hotels;
 import com.huo.dbpjbackend.service.HotelsService;
 import io.swagger.annotations.Api;
@@ -30,6 +31,7 @@ public class HotelsController {
     @PostMapping
     public Result<String> save(@RequestBody Hotels hotels) {
         log.info("hotels:{}",hotels);
+        hotels.setNumavail(hotels.getNumrooms());
         hotelsService.save(hotels);
         return Result.success("添加旅馆成功");
     }
@@ -45,6 +47,17 @@ public class HotelsController {
         hotelsService.page(pageInfo,queryWrapper);
 
         return Result.success(pageInfo);
+    }
+    /**
+     * 根据id获取旅馆
+     * @return
+     */
+    @GetMapping("/{id}")
+    public Result<Hotels> get(@PathVariable String id){
+        LambdaQueryWrapper<Hotels> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(Hotels::getLocation,id);
+        Hotels hotels= hotelsService.getOne(queryWrapper);
+        return Result.success(hotels);
     }
     /**
      * 根据id删除旅馆

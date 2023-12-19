@@ -108,17 +108,20 @@ INSERT INTO `hotels` VALUES ('B', 118, 101, 20);
 INSERT INTO `hotels` VALUES ('C', 127, 102, 20);
 INSERT INTO `hotels` VALUES ('D', 274, 103, 20);
 
--- ----------------------------
--- Table structure for reservations
--- ----------------------------
+-- Drop the existing reservations table if it exists
 DROP TABLE IF EXISTS `reservations`;
-CREATE TABLE `reservations`  (
-  `custName` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '客户名',
-  `resvType` int(0) NOT NULL COMMENT '预定类型',
-  `resvKey` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '主键',
-  PRIMARY KEY (`resvKey`) USING BTREE
+
+-- Create the reservations table with the modified primary key
+CREATE TABLE `reservations` (
+                                `resvKey` VARCHAR(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '主键',
+                                `custName` VARCHAR(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '客户名',
+                                `resvType` INT(0) NOT NULL COMMENT '预定类型',
+                                PRIMARY KEY (`resvKey`)
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '预定表' ROW_FORMAT = Dynamic;
 
+-- Add auto-increment to the primary key column
+ALTER TABLE `reservations`
+    MODIFY COLUMN `resvKey` INT AUTO_INCREMENT;
 -- ----------------------------
 -- Records of reservations
 -- ----------------------------

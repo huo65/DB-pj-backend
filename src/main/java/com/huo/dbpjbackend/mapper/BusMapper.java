@@ -3,6 +3,8 @@ package com.huo.dbpjbackend.mapper;
 import com.huo.dbpjbackend.domain.Bus;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 
 /**
@@ -14,6 +16,12 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface BusMapper extends BaseMapper<Bus> {
 
+    @Select(" SELECT numavail FROM bus WHERE location = #{model}")
+    int getAvailable(String model);
+    @Update(" UPDATE bus\n" +
+            "        SET numavail = numavail - 1\n" +
+            "        WHERE location = #{model}")
+    void addReservation(String model);
 }
 
 

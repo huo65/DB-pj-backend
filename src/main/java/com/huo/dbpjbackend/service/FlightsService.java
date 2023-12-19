@@ -10,4 +10,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
 */
 public interface FlightsService extends IService<Flights> {
 
+    void resv(int model);
+
+    int getAvailable(int model);
 }
+

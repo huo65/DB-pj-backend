@@ -18,7 +18,7 @@ public class Reservations implements Serializable {
      * 主键
      */
     @TableId
-    private String resvkey;
+    private int resvkey;
 
     /**
      * 客户名
@@ -29,6 +29,10 @@ public class Reservations implements Serializable {
      * 预定类型
      */
     private Integer resvtype;
+    /**
+     * 预订型号
+     */
+    private String model;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
